@@ -28,7 +28,7 @@ function populateTable() {
             tableContent += '<tr>';
             tableContent += '<td>' + this.author + '</td>';
             tableContent += '<td><a href="#" class="linkshowchar" rel="' + this.character.name + '">' + this.character.name + '</a></td>';
-            tableContent += '<td><a href="#" class="linkdeleteuser" rel="' + this._id + '">delete</a></td>';
+            tableContent += '<td><a href="#" class="linkdeletechar" rel="' + this._id + '">delete</a></td>';
             tableContent += '</tr>';
         });
 
@@ -53,14 +53,13 @@ function showCharInfo(event) {
             return arrayItem.character.name; 
         }).indexOf(thisCharName);
 
-    
+   
 
     var thisCharObject = charListData[arrayPosition];
-    
+    //alert(thisCharObject.character.formes);
     //Populate Info Box
     $('#charInfoName').text(thisCharObject.character.name);
-    
-    $('#charInfoFormes').text(thisUserObject.character.formes);
+    $('#charInfoFormes').text(thisCharObject.character.formes);
     $('#charInfoAb').text(thisCharObject.character.abilities);
     $('#charInfoDesc').text(thisCharObject.character.description);
 
