@@ -1,6 +1,6 @@
 body {
   padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Ubuntu;
 }
 
 h2 {
@@ -11,31 +11,40 @@ a {
   color: #00B7FF;
 }
 
+#page
+{
+	margin: -10px 50px;
+	padding: 5px 20px 15px;
+	box-shadow: 0px 0px 7px #999;
+	background: #fff none repeat scroll 0% 0%;
+	position: relative;
+}
+
 #wrapper {
 	padding-left:312px;
 	position:relative;
 }
 
-#userList {
+#charList {
 	margin:0 0 30px 0;
 }
-	#userList table {
+	#charList table {
 		border-collapse:separate;
 		border-spacing:1px;
 		background:#CCC;
 	}
-		#userList table th {
+		#charList table th {
 			background:#EEE;
 			font-weight:600;
 			padding:10px 20px;
 			text-align:center;
 		}
-		#userList table tbody {
+		#charList table tbody {
 			padding:0; margin:0;
 			border-collapse:collapse;
 			border-spacing:0px;
 		}
-			#userList table td {
+			#charList table td {
 				background:#FFF;
 				padding:5px 10px;
 				text-align:center;

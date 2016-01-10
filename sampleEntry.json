@@ -1,0 +1,13 @@
+{
+	
+	author: "Shawn",
+
+	character:
+	{
+		name: "Plain Yogurt",
+		formes: ["Vanilla Ice Cream", "Pasta"],
+		abilities: ["Eat gushers"],
+		description: "Very plain guy."
+	}
+
+}

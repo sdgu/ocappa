@@ -5,8 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+//database
+var mongo = require("mongodb");
+var mongoose = require("mongoose");
+var dburi = "mongodb://user:pass@ds039145.mongolab.com:39145/ocappa";
+var connextion = mongoose.connect(dburi);
+var db = connextion.connection;
+
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var characters = require('./routes/characters');
 
 var app = express();
 
@@ -22,8 +30,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use(function(req, res, next)
+{
+  req.db = db;
+  next(); 
+});
+
+
 app.use('/', routes);
-app.use('/users', users);
+app.use('/characters', characters);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
