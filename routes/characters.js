@@ -29,4 +29,42 @@ router.get("/characterlist", function(req, res)
 })
 
 
+router.post("/addchar", function(req, res)
+{
+	var db = req.db;
+	var collection = charcoll;
+
+
+	var author = req.body.author;
+	var charName = req.body.name;
+	var formes = req.body.formes;
+	var abilities = req.body.abilities;
+	var desc = req.body.description;
+
+	var newChar = collection(
+	{
+		author: author,
+		character:
+		{
+			name: charName,
+			formes: [formes],
+			abilities: [abilities],
+			description: desc
+
+		}
+	});
+
+	console.log(newChar);
+
+	newChar.save(function(err)
+	{
+		res.send(
+			(err == null) ? {msg: ""} : {msg: err});
+	});
+
+
+
+});
+
+
 module.exports = router;

@@ -8,9 +8,53 @@ $(document).ready(function() {
     populateTable();
     $('#charList table tbody').on('click', 'td a.linkshowchar', showCharInfo);
 
+    $("#btnAddChar").on("click", addChar);
+
 });
 
 // Functions =============================================================
+
+function addChar(event)
+{
+    event.preventDefault();
+
+    //error things maybe
+
+    var newChar = 
+    {
+        "author" : $("#addChar fieldset input#inputAuthor").val(),
+        "name" : $("#addChar fieldset input#inputCharName").val(),
+        "formes" : $("#addChar fieldset textarea#inputFormes").val(),
+        "abilities" : $("#addChar fieldset textarea#inputAbilities").val(),
+        "description" : $("#addChar fieldset textarea#inputDesc").val()
+        
+    }
+
+    $.ajax(
+    {
+        type: "POST",
+        data: newChar,
+        url: "/characters/addchar",
+        dataType: "JSON"
+    }).done(function(res)
+    {
+        if (res.msg == "")
+        {
+            $("#addChar fieldset input").val("");
+            $("#addChar fieldset textarea").val("");
+
+            populateTable();
+        }
+        else
+        {
+            alert("Error: " + res.msg);
+        }
+    });
+
+}
+
+
+
 
 // Fill table with data
 function populateTable() {
@@ -26,8 +70,9 @@ function populateTable() {
         // For each item in our JSON, add a table row and cells to the content string
         $.each(data, function(){
             tableContent += '<tr>';
-            tableContent += '<td>' + this.author + '</td>';
+            
             tableContent += '<td><a href="#" class="linkshowchar" rel="' + this.character.name + '">' + this.character.name + '</a></td>';
+            tableContent += '<td>' + this.author + '</td>';
             tableContent += '<td><a href="#" class="linkdeletechar" rel="' + this._id + '">delete</a></td>';
             tableContent += '</tr>';
         });
@@ -58,6 +103,7 @@ function showCharInfo(event) {
     var thisCharObject = charListData[arrayPosition];
     //alert(thisCharObject.character.formes);
     //Populate Info Box
+    $("#authorName").text(thisCharObject.author);
     $('#charInfoName').text(thisCharObject.character.name);
     $('#charInfoFormes').text(thisCharObject.character.formes);
     $('#charInfoAb').text(thisCharObject.character.abilities);

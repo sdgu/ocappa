@@ -7,21 +7,6 @@ block content
 	// Wrapper
 	#wrapper
 
-		#charInfo
-
-			h2 Character Info
-			p
-				strong Author: 
-				| <span id="charInfoName"></span>
-				br
-				strong Formes: 
-				| <span id="charInfoFormes"></span>
-				br
-				strong Abilities: 
-				| <span id="charInfoAb"></span>
-				br
-				strong Description: 
-				| <span id="charInfoDesc"></span>
 
 
 
@@ -29,7 +14,53 @@ block content
 		#charList
 			table
 				thead
-					th Author
 					th Character Name
+					th Author
 					th Delete?
 				tbody
+
+		#charInfo
+			h2 Character Info
+			table
+				tr
+					td
+						strong Character Name: 
+					td
+						| <span id="charInfoName"></span>
+				tr
+					td
+						strong Formes: 
+					td
+						| <span id="charInfoFormes"></span>
+				tr
+					td
+						strong Abilities: 
+					td
+						| <span id="charInfoAb"></span>
+				tr
+					td
+						strong Description: 
+					td
+						| <span id="charInfoDesc"></span>
+				tr
+					td
+						strong Author:
+					td 
+						| <span id="authorName"></span>
+
+
+
+		h2 Add Character
+		#addChar
+			fieldset
+				input#inputAuthor(type="text" placeholder="Author")
+				br
+				input#inputCharName(type="text" placeholder="Character Name")
+				br
+				textarea#inputFormes(placeholder="Formes" rows="10" cols="30")
+				br
+				textarea#inputAbilities(placeholder="Abilities" rows="10" cols="30")
+				br
+				textarea#inputDesc(placeholder="Description" rows="10" cols="30")
+				br
+				button#btnAddChar Add Character
