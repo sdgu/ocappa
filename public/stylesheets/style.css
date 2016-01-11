@@ -99,8 +99,6 @@ a {
 #authorInfo 
 {
 
-
-
     width: 100%;
     margin: auto;
     margin-bottom: 10px;
@@ -113,6 +111,12 @@ a {
     border: 1px solid #CCC;
     background: rgba(80, 120, 255, 0.05);
 
+}
+
+.toright
+{
+	float: right;
+	
 }
 
 .titl
