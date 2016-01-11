@@ -91,7 +91,7 @@ function populateTable() {
         // }
 
         // For each item in our JSON, add a table row and cells to the content string
-        $.each(data, function(index, value){
+        $.each(data.reverse(), function(index, value){
 
             if (selectedToDisplay != "all")
             {
