@@ -91,6 +91,30 @@ a {
 
 }
 
+#headingai
+{
+	padding-left: 10px;
+}
+
+#authorInfo 
+{
+
+
+
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    
+}
+
+#authorInfo table {
+    padding: 10px;
+    border: 1px solid #CCC;
+    background: rgba(80, 120, 255, 0.05);
+
+}
+
 .titl
 {
 	text-align: right;
