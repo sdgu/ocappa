@@ -12,6 +12,14 @@ $(document).ready(function() {
 
 });
 
+var selectedToDisplay = 5;
+$("#howMany").change(function()
+{
+    selectedToDisplay = $(this).val();
+    //alert(selectedToDisplay);
+    populateTable();
+})
+
 // Functions =============================================================
 
 function addChar(event)
@@ -59,6 +67,7 @@ function addChar(event)
 // Fill table with data
 function populateTable() {
 
+
     // Empty content string
     var tableContent = '';
 
@@ -67,14 +76,44 @@ function populateTable() {
 
         charListData = data;
 
+        // if (selectedToDisplay == 5)
+        // {
+        //     for (var i = 0; i < 5; i++)
+        //     {
+        //         tableContent += '<tr>';
+                
+        //         tableContent += '<td><a href="#" class="linkshowchar" rel="' + data[i].character.name + '">' + data[i].character.name + '</a></td>';
+        //         tableContent += '<td>' + data[i].author + '</td>';
+        //         tableContent += '<td><a href="#" class="linkdeletechar" rel="' + data[i]._id + '">delete</a></td>';
+        //         tableContent += '</tr>';
+
+        //     }
+        // }
+
         // For each item in our JSON, add a table row and cells to the content string
-        $.each(data, function(){
-            tableContent += '<tr>';
+        $.each(data, function(index, value){
+
+            if (selectedToDisplay != "all")
+            {
+                if (index < selectedToDisplay)
+                {
+                    tableContent += '<tr>';
+                    tableContent += '<td><a href="#" class="linkshowchar" rel="' + this.character.name + '">' + this.character.name + '</a></td>';
+                    tableContent += '<td>' + this.author + '</td>';
+                    tableContent += '<td><a href="#" class="linkdeletechar" rel="' + this._id + '">delete</a></td>';
+                    tableContent += '</tr>';
+                }
+            }
+            else
+            {
+                tableContent += '<tr>';
+                tableContent += '<td><a href="#" class="linkshowchar" rel="' + this.character.name + '">' + this.character.name + '</a></td>';
+                tableContent += '<td>' + this.author + '</td>';
+                tableContent += '<td><a href="#" class="linkdeletechar" rel="' + this._id + '">delete</a></td>';
+                tableContent += '</tr>';
+            }
+
             
-            tableContent += '<td><a href="#" class="linkshowchar" rel="' + this.character.name + '">' + this.character.name + '</a></td>';
-            tableContent += '<td>' + this.author + '</td>';
-            tableContent += '<td><a href="#" class="linkdeletechar" rel="' + this._id + '">delete</a></td>';
-            tableContent += '</tr>';
         });
 
         // Inject the whole content string into our existing HTML table

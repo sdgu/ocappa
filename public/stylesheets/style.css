@@ -13,9 +13,19 @@ textarea {
     font-family: Ubuntu, sans-serif;
 }
 
-h2 {
-    margin: 0 0 .5em 0;
+
+
+h2
+{
+	margin: 15px 0px 5px 0px;
 }
+
+h4
+{
+	color: #1a4eff;
+	margin: 10px 0px 3px 0px;
+}
+
 
 a {
     color: #00B7FF;
@@ -44,6 +54,7 @@ a {
     border-collapse: separate;
     border-spacing: 1px;
     background: #CCC;
+
 }
 
 #charList table th {
@@ -77,15 +88,34 @@ a {
     padding: 10px;
     border: 1px solid #CCC;
     background: rgba(80, 120, 255, 0.05);
+
+}
+
+.titl
+{
+	text-align: right;
+
+	display: inline-block;
+	vertical-align: top;
+	min-width: 8rem;
+	
 }
 
 #charInfo table td
 {
-	margin-right: 5px;
+	padding: 5px 0px 5px 10px;
+
 }
 
 fieldset {
     border: 0;
     padding: 0;
     margin: 0;
+}
+
+
+#howMany
+{
+	margin: 0px 0px 10px 0px;
+
 }

@@ -2,7 +2,7 @@ extends layout
 
 block content
 	h1= title
-	p Welcome to our OCAPPA
+	p Welcome to OCAPPA
 
 	// Wrapper
 	#wrapper
@@ -11,6 +11,14 @@ block content
 
 
 		h2 Character List
+
+		p Number to display: 
+			select#howMany
+				option(value="5") 5
+				option(value="10") 10
+				option(value="25") 25
+				option(value="all") All
+
 		#charList
 			table
 				thead
@@ -19,31 +27,33 @@ block content
 					th Delete?
 				tbody
 
+		
+		br
 		#charInfo
 			h2 Character Info
 			table
 				tr
-					td
+					td.titl
 						strong Character Name: 
 					td
 						| <span id="charInfoName"></span>
 				tr
-					td
+					td.titl
 						strong Formes: 
 					td
 						| <span id="charInfoFormes"></span>
 				tr
-					td
+					td.titl
 						strong Abilities: 
 					td
 						| <span id="charInfoAb"></span>
 				tr
-					td
+					td.titl
 						strong Description: 
 					td
 						| <span id="charInfoDesc"></span>
 				tr
-					td
+					td.titl
 						strong Author:
 					td 
 						| <span id="authorName"></span>
@@ -53,14 +63,17 @@ block content
 		h2 Add Character
 		#addChar
 			fieldset
+				h4 Author: 
 				input#inputAuthor(type="text" placeholder="Author")
-				br
+				h4 Character Name: 
 				input#inputCharName(type="text" placeholder="Character Name")
-				br
+				h4 Formes: 
 				textarea#inputFormes(placeholder="Formes" rows="10" cols="30")
 				br
+				h4 Abilities: 
 				textarea#inputAbilities(placeholder="Abilities" rows="10" cols="30")
 				br
+				h4 Description: 
 				textarea#inputDesc(placeholder="Description" rows="10" cols="30")
 				br
 				button#btnAddChar Add Character
