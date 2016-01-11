@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 //database
 var mongo = require("mongodb");
 var mongoose = require("mongoose");
-var dburi = "mongodb://user:pass@ds039145.mongolab.com:39145/ocappa";
+var dburi = "mongodb://<user>:<pass>@ds039145.mongolab.com:39145/ocappa";
 var connextion = mongoose.connect(dburi);
 var db = connextion.connection;
 
