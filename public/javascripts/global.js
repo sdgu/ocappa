@@ -1,6 +1,9 @@
 // Charlist data array for filling in info box
 var charListData = [];
 
+
+    
+
 // DOM Ready =============================================================
 $(document).ready(function() {
 
@@ -9,6 +12,9 @@ $(document).ready(function() {
     $('#charList table tbody').on('click', 'td a.linkshowchar', showCharInfo);
 
     $("#btnAddChar").on("click", addChar);
+    //when page is loaded, number to display goes back to default 5
+    $("#howMany option:eq(0)").prop("selected", true);
+
 
 });
 
@@ -46,10 +52,14 @@ function addChar(event)
         dataType: "JSON"
     }).done(function(res)
     {
+
+
         if (res.msg == "")
         {
+            //when submitting, form gets refreshed
             $("#addChar fieldset input").val("");
             $("#addChar fieldset textarea").val("");
+            
 
             populateTable();
         }
